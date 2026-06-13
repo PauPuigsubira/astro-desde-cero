@@ -3,6 +3,7 @@ import astroLogo from '../assets/astro.svg';
 import background from '../assets/background.svg';
 
 const { username = 'John Doe'} = Astro.props;
+const pageTitle = 'Home Page';
 ---
 
 <div id="container">
@@ -10,10 +11,10 @@ const { username = 'John Doe'} = Astro.props;
 	<main>
 		<section id="hero">
 			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
+				><img src={astroLogo.src} width="115" height="48" alt="{pageTitle}" /></a
 			>
 			<h1>
-				To get started, {username}, <code><pre>src/pages</pre></code> directory in your project.
+				To get started {username}, <code><pre>src/pages</pre></code> directory in your project.
 			</h1>
 			<section id="links">
 				<a class="button" href="https://docs.astro.build">Read our docs</a>
