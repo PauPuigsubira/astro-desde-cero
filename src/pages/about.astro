@@ -2,6 +2,8 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
+import '../styles/global.css';
+
 const pageTitle ="About Me";
 
 const identity = {
@@ -11,17 +13,33 @@ const identity = {
   hobbies: ["anime", "programming", "farming"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing docs"];
 
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = 'bold';
+const textCase = 'capitalize';
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
@@ -48,7 +66,7 @@ const goal = 3;
     </ul>
     <p>My skills are:</p>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
     {happy && <p>I am happy to be learning Astro!</p>}
