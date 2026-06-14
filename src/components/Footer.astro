@@ -1,0 +1,39 @@
+---
+import facebookLogo from '../assets/icons8-facebook-50.svg';
+import instagramLogo from '../assets/icons8-instagram-50.svg';
+import linkedinLogo from '../assets/icons8-linkedin-50.svg';
+import twitterLogo from '../assets/icons8-twitter-50.svg';
+
+import Social from './Social.astro';
+
+const platform = "github";
+const username = "withastro";
+---
+<footer>
+    <p>Learn more about my projects on <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!</p>
+    <section class="footerSocialMedia">
+        <!--a href="http://www.facebook.com/">
+            <img src={facebookLogo.src} alt="Facebook Logo" />
+        </a-->
+        <Social platform="Facebook" username="Pau" logo={facebookLogo.src} />
+        <!--a href="http://https://www.instagram.com/">
+            <img src={instagramLogo.src} alt="Instagram Logo" />
+        </a-->
+        <Social platform="Instagram" username="Pau" logo={instagramLogo.src} />
+        <!--a href="https://es.linkedin.com/">
+            <img src={linkedinLogo.src} alt="LinkedIn Logo" />
+        </a-->
+        <Social platform="LinkdIn" username="Pau" logo={linkedinLogo.src} />
+        <!-- <a href="https://x.com/">
+            <img src={twitterLogo.src} alt="Twitter Logo" />
+        </a> -->
+        <Social platform="Twitter" username="Pau" logo={twitterLogo.src} />
+    </section>
+</footer>
+
+<style>
+    .footerSocialMedia {
+        display:flex;
+        flex-direction: row;
+    }
+</style>

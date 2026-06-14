@@ -1,4 +1,6 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
@@ -42,9 +44,7 @@ const textCase = 'capitalize';
     </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
 
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
@@ -77,5 +77,7 @@ const textCase = 'capitalize';
       ? <p>My goal is to finish in 3 days.</p> 
       : <p>My goal is not 3 days.</p>
     }
+
+    <Footer />
   </body>
 </html>

@@ -1,0 +1,36 @@
+---
+const {platform, username, logo} = Astro.props
+---
+<a href={`https://www.${platform}.com/${username}`}>
+    <img src={logo} alt={`${platform} Logo`} />
+    {platform}
+</a>
+
+<style>
+    footer {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        /*background-color: #4c1d95;*/
+        text-decoration: none;
+    }
+
+    a:hover {
+        font-size: 1.25rem;
+        border: 2px solid gray;
+        border-radius: 10px;
+        padding: 0 10px;
+        transition: 200ms;
+    }
+
+    img {
+        width : 50px;
+        height : 50px;
+    }
+</style>
