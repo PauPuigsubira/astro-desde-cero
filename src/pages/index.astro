@@ -1,17 +1,26 @@
 ---
 import '../styles/global.css';
 
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 const pageTitle = 'Home Page'
 ---
-<Navigation />
+<Header />
 
 <Layout>
 	<Welcome />
 </Layout>
 
 <Footer />
+<script>
+//	const menu = document.querySelector('.menu');
+
+	// menu?.addEventListener('click', () => {
+	// 	const isExpanded = menu.getAttribute('aria-expanded') === 'true';
+	// 	menu.setAttribute('aria-expanded', `${!isExpanded}`);
+	// });
+	import '../scripts/menu.js'
+</script>
