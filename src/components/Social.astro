@@ -1,10 +1,22 @@
 ---
 const {platform, username, logo} = Astro.props
 ---
-<a href={`https://www.${platform}.com/${username}`}>
-    <img src={logo} alt={`${platform} Logo`} />
-    {platform}
-</a>
+{ username && 
+    <a href={`https://www.${platform}.com/${username}`}>
+        <img src={logo} alt={`${platform} Logo`} />
+        {platform}
+    </a>
+}
+
+{
+  !username &&
+  <small>
+    <a href={`/${platform}.xml`} target="_blank" rel="noopener noreferrer">
+      <img src={logo} alt={`${platform} Logo`} />
+      Suscribete a nuestros noticias con RSS
+    </a>
+  </small>
+}
 
 <style>
     footer {

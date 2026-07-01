@@ -3,6 +3,7 @@ import facebookLogo from '../assets/icons8-facebook-50.svg';
 import instagramLogo from '../assets/icons8-instagram-50.svg';
 import linkedinLogo from '../assets/icons8-linkedin-50.svg';
 import twitterLogo from '../assets/icons8-twitter-50.svg';
+import rssLogo from '../assets/rss_icon.svg';
 
 import Social from './Social.astro';
 
@@ -28,6 +29,9 @@ const username = "withastro";
             <img src={twitterLogo.src} alt="Twitter Logo" />
         </a> -->
         <Social platform="Twitter" username="Pau" logo={twitterLogo.src} />
+    </section>
+    <section>
+      <Social platform="rss" logo={rssLogo.src} />
     </section>
 </footer>
 
