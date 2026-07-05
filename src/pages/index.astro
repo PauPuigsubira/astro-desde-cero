@@ -10,6 +10,7 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greetings from '../components/Greetings.jsx';
+import Advertising from '../components/Advertising.astro';
 const pageTitle = "Home Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
@@ -21,6 +22,7 @@ const pageTitle = "Home Page";
 	  client:load 
 		messages={["Hej", "Hallo", "Hola", "Habari"]}
 	/>
+	<Advertising slot="advertising" text="This is a test advertising" />
 </BaseLayout>
 
 <!-- <Header />
