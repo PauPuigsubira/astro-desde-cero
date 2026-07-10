@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type Product, type Products } from '../../types/api_store';
+import { getProductBy, getProducts } from '../../services/store';
+
+if (Astro.cookies.get('user')) {
+  console.log('User logged');
+} else {
+  console.log('User not logged');
+}
+
+export async function getStaticPaths() {
+  const products = await getProducts();
+  
+  const routes = products.map((product) => {
+    return {
+      params: { id: product.id + "p"},
+    }
+  });
+
+  console.log('routes', routes);
+  return routes;
+};
+
+const { id } = Astro.params;
+
+if (!id) {
+  Astro.redirect('/');
+}
+const pageId = Number(id.substring(1,-1));
+const product: Product = await getProductBy({ id: pageId });
+console.log('producto', product);
+---
+<BaseLayout pageTitle={product.title}>
+  <article>
+    <img src={product.image} alt={product.title} width="200" />
+    <h2>{product.title}</h2>
+    <p>{product.description}</p>
+    <p><strong>{product.price} €</strong> — {product.category}</p>
+  </article>
+</BaseLayout>
+

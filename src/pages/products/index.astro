@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type Product, type Products } from '../../types/api_store';
+import { getProducts } from '../../services/store';
+console.log('After imports');
+const res:Products = await getProducts();
+
+console.log(JSON.stringify(res));
+const pageTitle = "Fake Store API";
+---
+<BaseLayout pageTitle={pageTitle}>
+  <p>This is a test page for jsonplaceholder typicode API.</p>
+  <div class="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+    {res.map((item:Product) => (
+
+      <article
+        class:list= {[
+          "text-m font-semibold p-4 mr-2 px2.5 py-0.5 rounded",
+          {
+            "bg-gray-200" : item.id % 2 === 0,
+            "bg-yellow-200" : item.id % 2 !== 0
+          }
+        ]}
+      >
+        <header>{item.title}</header>
+        <p>{item.description}</p>
+        <img src={item.image} alt={item.title}/>
+        <span>{item.category}</span>
+        <div>
+          <p>Price: {item.price}</p>
+        </div>
+        <a href={'/products/' + item.id + 'p'}>More Details</a>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

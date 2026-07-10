@@ -1,6 +1,9 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+import { ClientRouter } from "astro:transitions";
+
 import '../styles/global.css';
 const {pageTitle} = Astro.props;
 ---
@@ -17,6 +20,7 @@ const {pageTitle} = Astro.props;
       title="Learner Blog - Topic Astro"
       href={"/rss.xml" /*new URL("rss.xml", Astro.site)*/}
     />
+    <ClientRouter />
   </head>
   <body>
     <Header />
